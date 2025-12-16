@@ -25,11 +25,17 @@
             box-sizing: border-box;
         }
 
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: var(--dark);
-            overflow-x: hidden;
         }
 
         /* Navigation */
@@ -638,6 +644,14 @@
                 margin: 1.5rem 0;
                 font-size: 1.2rem;
                 color: var(--dark);
+            }
+
+            .nav-links .btn {
+                padding: 0.8rem 2rem;
+                margin-top: 1rem;
+                white-space: nowrap;
+                width: auto;
+                display: inline-block;
             }
 
             .hero h1 {
