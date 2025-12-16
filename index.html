@@ -560,6 +560,153 @@
             .expertise-visual {
                 display: none;
             }
+
+            .contact-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .contact-actions {
+                text-align: center;
+                align-items: center;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .action-buttons .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Contact Section Specifics */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .info-item .icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-item h4 {
+            margin-bottom: 0.25rem;
+            color: white;
+        }
+
+        .info-item p,
+        .info-item a {
+            color: var(--gray);
+            margin: 0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-item a:hover {
+            color: var(--accent);
+        }
+
+        .status-box {
+            border: 1px solid var(--accent);
+            background: rgba(239, 125, 0, 0.1);
+        }
+
+        .status-date {
+            color: var(--accent) !important;
+            font-weight: bold;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-btn.linkedin:hover {
+            background: #0077b5;
+        }
+
+        .social-btn.xing:hover {
+            background: #026466;
+        }
+
+        .social-btn.facebook:hover {
+            background: #1877f2;
+        }
+
+        .social-btn.instagram:hover {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            display: inline-block;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--dark);
         }
     </style>
 </head>
@@ -804,14 +951,84 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta" id="contact" data-aos="zoom-in">
+    <!-- Contact Section -->
+    <section class="contact" id="contact"
+        style="padding: 5rem 0; background: linear-gradient(135deg, var(--dark) 0%, #2a2a2a 100%); color: white;">
         <div class="container">
-            <h2>Bereit für Ihr nächstes Projekt?</h2>
-            <p style="font-size: 1.25rem; margin-bottom: 2rem;">
-                Lassen Sie uns gemeinsam Ihre IT-Herausforderungen meistern
-            </p>
-            <a href="mailto:info@schunkbsc.de" class="btn">Kontakt aufnehmen</a>
+            <div data-aos="fade-up">
+                <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Kontakt</h2>
+                <p style="text-align: center; color: var(--gray); margin-bottom: 3rem; font-size: 1.1rem;">Lassen Sie
+                    uns über Ihr Projekt sprechen</p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="info-item status-box">
+                        <div class="icon"><i class="fas fa-calendar-check"></i></div>
+                        <div>
+                            <h4>Verfügbarkeit</h4>
+                            <p class="status-date">Verfügbar ab: 01.10.2025</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon"><i class="fas fa-location-dot"></i></div>
+                        <div>
+                            <h4>Standort</h4>
+                            <p>Brinkstraße 12<br>49080 Osnabrück</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:info@schunk-bsc.com">info@schunk-bsc.com</a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Telefon</h4>
+                            <a href="tel:+495419313270">+49 5419 313270</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social & Actions -->
+                <div class="contact-actions" data-aos="fade-left">
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/alexander-schunk-8b6357201/" target="_blank"
+                            class="social-btn linkedin" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.xing.com/profile/Alexander_Schunk5" target="_blank" class="social-btn xing"
+                            title="Xing">
+                            <i class="fab fa-xing"></i>
+                        </a>
+                        <a href="https://www.facebook.com/people/SCHUNK-business-solution-consulting/100090956402255/"
+                            target="_blank" class="social-btn facebook" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/schunk_bsc/" target="_blank" class="social-btn instagram"
+                            title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+
+                    <div class="action-buttons">
+                        <a href="https://outlook.office.com/bookwithme/user/441c88dddc3541fba665735d2ffbb55f%40schunk-bsc.com?anonymous&isanonymous=true"
+                            target="_blank" class="btn btn-primary booking-btn">
+                            <i class="fas fa-calendar-plus" style="margin-right: 0.5rem;"></i> Termin buchen
+                        </a>
+                        <a href="mailto:info@schunk-bsc.com" class="btn btn-outline">
+                            Projekt anfragen
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
