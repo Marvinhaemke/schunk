@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SchunkBSC - Business Solution Consulting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --accent: rgb(239, 125, 0);
+            --accent-hover: rgb(219, 105, 0);
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --gray: #6b7280;
+            --gray-light: #f7f8fa;
+            --success: #10b981;
+            --error: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 0.5rem 0;
+            /* Reduced padding for logo fit */
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.7)), url('/LR_2394a.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: white;
+            /* Explicitly set to white for contrast on image */
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            font-weight: 300;
+        }
+
+        .hero .subtitle strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(239, 125, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(239, 125, 0, 0.4);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--gray-light);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--gray-light) 0%, white 100%);
+        }
+
+        .expertise-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .expertise-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .expertise-text p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .expertise-visual {
+            position: relative;
+        }
+
+        .orbit-item:nth-child(4) {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        /* Services */
+        .services {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-box {
+            background: linear-gradient(135deg, var(--gray-light) 0%, rgba(239, 125, 0, 0.05) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(239, 125, 0, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-box:hover::after {
+            opacity: 1;
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            filter: grayscale(0);
+            transition: filter 0.3s ease;
+        }
+
+        .service-box:hover .service-icon {
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: 5rem 0;
+            background: var(--gray-light);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .comparison-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-card.success {
+            border-top: 3px solid var(--success);
+        }
+
+        .comparison-card.error {
+            border-top: 3px solid var(--error);
+        }
+
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .comparison-header .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .comparison-card.success .icon {
+            background: var(--success);
+        }
+
+        .comparison-card.error .icon {
+            background: var(--error);
+        }
+
+        .comparison-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 3rem auto;
+            position: relative;
+            height: 300px;
+        }
+
+        .testimonial {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            background: var(--gray-light);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .testimonial.active {
+            opacity: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--accent);
+            transform: scale(1.3);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta .btn {
+            background: white;
+            color: var(--accent);
+        }
+
+        .cta .btn:hover {
+            background: var(--gray-light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .expertise-content {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .expertise-visual {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index2.html" class="logo">
+                <img src="/Schunk-BSC_Unterzeile_Logo_RGB.png" alt="Schunk BSC">
+            </a>
+            <div class="nav-links">
+                <a href="#features">Warum SchunkBSC?</a>
+                <a href="skills.html">Skills & Erfahrungen</a>
+                <a href="#services">Leistungen</a>
+                <a href="#contact" class="btn">Projekt anfragen</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <h1>Dynamics-Expertise für nachhaltige IT-Lösungen</h1>
+                <p class="subtitle">
+                    Unabhängiges Business Solution Consulting mit Fokus auf
+                    <strong>Microsoft Dynamics 365 CE</strong> – zuverlässig, effizient und zukunftssicher.
+                </p>
+                <a href="#contact" class="btn">Projekt Anfragen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Warum Schunk BSC?</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="feature-icon"><i class="fas fa-chart-column"></i></div>
+                    <h3>10+ Jahre Dynamics-Erfahrung</h3>
+                    <p>Über ein Jahrzehnt bewährte Expertise im Microsoft Dynamics Umfeld</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+                    <h3>Technische Tiefe + Beratungskompetenz</h3>
+                    <p>Perfekte Kombination aus technischem Know-how und strategischer Beratung</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Flexible Einbindung</h3>
+                    <p>Analyse, Leitung, Umsetzung – passgenau für Ihr Projekt</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Zukunftssichere Lösungen</h3>
+                    <p>Nachhaltige Konzepte für die gesamte Systemlandschaft</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise">
+        <div class="container">
+            <div class="expertise-content">
+                <div class="expertise-text" data-aos="fade-right">
+                    <h2>Technisches Know-how trifft Beratungskompetenz</h2>
+                    <p>
+                        Mehr als zehn Jahre Erfahrung im Microsoft-Dynamics-Umfeld – von der Entwicklung
+                        bis zur Projektleitung. Kombination aus technischem Fundament und methodischer
+                        Beratung für Lösungen, die heute funktionieren und morgen skalierbar bleiben.
+                    </p>
+                    <div style="margin-top: 2rem;">
+                        <a href="#contact" class="btn">Jetzt Projekt starten</a>
+                        <a href="skills.html"
+                            style="display: inline-block; margin-left: 1.5rem; color: var(--accent); font-weight: 600; text-decoration: none; transition: transform 0.3s ease;"
+                            onmouseover="this.style.transform='translateX(5px)'"
+                            onmouseout="this.style.transform='translateX(0)'">Zu den Skills <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="expertise-visual" data-aos="zoom-in">
+                    <img src="/LR_4806-1.jpg" alt="Alexander Schunk - Business Solution Consultant"
+                        style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Schwerpunkte</h2>
+            <div class="services-grid">
+                <div class="service-box" data-aos="fade-up" data-aos-delay="0">
+                    <div class="service-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <h3>Projektleitung</h3>
+                    <p>Steuerung klassischer & agiler Projekte</p>
+                </div>
+                <div class="service-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Business Solution Consulting</h3>
+                    <p>Prozessanalyse & Konzeption</p>
+                </div>
+                <div class="service-box" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3>Softwareentwicklung</h3>
+                    <p>Erweiterungen & Anpassungen in Dynamics</p>
+                </div>
+                <div class="service-box" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>Systemintegration</h3>
+                    <p>Schnittstellenarchitektur & IT-Landschaften</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Der Unterschied in Projekten</h2>
+            <div class="comparison-grid">
+                <div class="comparison-card success" data-aos="fade-right">
+                    <div class="comparison-header">
+                        <div class="icon"><i class="fas fa-check"></i></div>
+                        <span>Mit Schunk BSC</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span><i class="fas fa-circle-check" style="color: var(--success);"></i></span>
+                        <span>Stabile IT-Prozesse mit Dynamics-Know-how</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span><i class="fas fa-circle-check" style="color: var(--success);"></i></span>
+                        <span>Zukunftssichere Lösungen, die ins Gesamtbild passen</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span><i class="fas fa-circle-check" style="color: var(--success);"></i></span>
+                        <span>Effiziente Projektsteuerung und klare Kommunikation</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span><i class="fas fa-circle-check" style="color: var(--success);"></i></span>
+                        <span>Nachhaltiger Wissenstransfer ins interne Team</span>
+                    </div>
+                </div>
+                <div class="comparison-card error" data-aos="fade-left">
+                    <div class="comparison-header">
+                        <div class="icon"><i class="fas fa-xmark"></i></div>
+                        <span>Ohne Schunk BSC</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span><i class="fas fa-circle-xmark" style="color: var(--error);"></i></span>
+                        <span>Kurzfristige Patches ohne langfristige Wirkung</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span><i class="fas fa-circle-xmark" style="color: var(--error);"></i></span>
+                        <span>Risiko von Abhängigkeiten und hohen Folgekosten</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span><i class="fas fa-circle-xmark" style="color: var(--error);"></i></span>
+                        <span>Unklare Projektsteuerung und Verzögerungen</span>
+                    </div>
+
+                    <div class="comparison-item">
+                        <span><i class="fas fa-circle-xmark" style="color: var(--error);"></i></span>
+                        <span>Teams bleiben abhängig von externem Support</span>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;" data-aos="fade-up" data-aos-delay="200">
+                <a href="#contact" class="btn">Jetzt Projekt anfragen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services" style="background: white;">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Leistungen im Überblick</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="feature-icon"><i class="fas fa-magnifying-glass"></i></div>
+                    <h3>Analyse & Beratung</h3>
+                    <p>Prozesse und Systeme evaluieren</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon"><i class="fas fa-list-check"></i></div>
+                    <h3>Projektleitung</h3>
+                    <p>Steuerung agiler & klassischer Dynamics-Projekte</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Implementierung</h3>
+                    <p>Technische Umsetzung & Integration</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Training & Enablement</h3>
+                    <p>Befähigung von IT-Teams für Eigenständigkeit</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Referenzen aus Projekten</h2>
+            <div class="testimonial-slider" data-aos="fade-up">
+                <div class="testimonial active">
+                    <p class="testimonial-text">
+                        "Die Zusammenarbeit mit SchunkBSC hat unsere Dynamics-Implementierung
+                        auf ein neues Level gehoben. Professionell, kompetent und immer lösungsorientiert."
+                    </p>
+                    <p class="testimonial-author">– IT-Leiter, Mittelständisches Unternehmen</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "Herr Schunk versteht nicht nur die Technik, sondern auch unsere
+                        Geschäftsprozesse. Das macht den entscheidenden Unterschied."
+                    </p>
+                    <p class="testimonial-author">– Geschäftsführer, Produktionsunternehmen</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "Dank SchunkBSC konnten wir unser Projekt termingerecht und im Budget
+                        abschließen. Die Expertise war genau das, was wir brauchten."
+                    </p>
+                    <p class="testimonial-author">– Projektmanager, Dienstleistungssektor</p>
+                </div>
+            </div>
+            <div class="testimonial-dots" data-aos="fade-up">
+                <span class="dot active" onclick="showTestimonial(0)"></span>
+                <span class="dot" onclick="showTestimonial(1)"></span>
+                <span class="dot" onclick="showTestimonial(2)"></span>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;" data-aos="zoom-in">
+                <a href="#contact" class="btn">Jetzt Projekt starten</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact" data-aos="zoom-in">
+        <div class="container">
+            <h2>Bereit für Ihr nächstes Projekt?</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 2rem;">
+                Lassen Sie uns gemeinsam Ihre IT-Herausforderungen meistern
+            </p>
+            <a href="mailto:info@schunkbsc.de" class="btn">Kontakt aufnehmen</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content" data-aos="fade-up">
+            <div class="footer-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+            <div class="footer-bottom" data-aos="fade-up" data-aos-delay="100">
+                <p>&copy; 2024 SchunkBSC - Alexander Schunk. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS
+        AOS.init({
+            once: true,
+            offset: 100
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Testimonial slider
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.dot');
+
+        function showTestimonial(index) {
+            testimonials.forEach(t => t.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                nav.style.padding = '0.5rem 0';
+                nav.style.boxShadow = '0 2px 30px rgba(0,0,0,0.15)';
+            } else {
+                nav.style.padding = '0.5rem 0';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+
+</html>

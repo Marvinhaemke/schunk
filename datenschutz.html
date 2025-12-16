@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung - SchunkBSC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --accent: rgb(239, 125, 0);
+            --accent-hover: rgb(219, 105, 0);
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --gray: #6b7280;
+            --gray-light: #f7f8fa;
+            --success: #10b981;
+            --error: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--gray-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(239, 125, 0, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(239, 125, 0, 0.4);
+        }
+
+        /* Hero Spacer */
+        .hero-spacer {
+            height: 40vh;
+            background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), url('/LR_2394a.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .hero-spacer h1 {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        /* Legal Content */
+        .legal-content {
+            background: white;
+            padding: 3rem 4rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            margin: -5rem auto 5rem;
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            width: 90%;
+        }
+
+        .legal-content h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            border-bottom: 2px solid var(--gray-light);
+            padding-bottom: 0.5rem;
+        }
+
+        .legal-content h3 {
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .legal-content p {
+            margin-bottom: 1rem;
+            color: var(--gray);
+            font-size: 1.05rem;
+        }
+
+        .legal-content ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            color: var(--gray);
+        }
+
+        .legal-content a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .legal-content {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index2.html" class="logo">
+                <img src="/Schunk-BSC_Unterzeile_Logo_RGB.png" alt="Schunk BSC">
+            </a>
+            <div class="nav-links">
+                <a href="index2.html#features">Warum SchunkBSC?</a>
+                <a href="skills.html">Skills & Erfahrungen</a>
+                <a href="index2.html#services">Leistungen</a>
+                <a href="index2.html#contact" class="btn">Projekt anfragen</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-spacer">
+        <div data-aos="fade-up">
+            <h1>Datenschutz</h1>
+        </div>
+    </div>
+
+    <div class="legal-content" data-aos="fade-up" data-aos-delay="100">
+        <h2>1. Datenschutz auf einen Blick</h2>
+        <h3>Allgemeine Hinweise</h3>
+        <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten
+            passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich
+            identifiziert werden können.</p>
+
+        <h3>Datenerfassung auf dieser Website</h3>
+        <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
+            Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie
+            dem Impressum dieser Website entnehmen.</p>
+
+        <p><strong>Wie erfassen wir Ihre Daten?</strong><br>
+            Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um
+            Daten handeln, die Sie in ein Kontaktformular eingeben. Andere Daten werden automatisch oder nach Ihrer
+            Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten
+            (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).</p>
+
+        <p><strong>Wofür nutzen wir Ihre Daten?</strong><br>
+            Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere
+            Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+
+        <h2>2. Hosting</h2>
+        <h3>ALL-INKL</h3>
+        <p>Wir hosten die Inhalte unserer Website bei folgendem Anbieter:<br>
+            ALL-INKL.COM - Neue Medien Münnich, Inh. René Münnich, Hauptstraße 68, 02742 Friedersdorf.</p>
+        <p>Details entnehmen Sie der Datenschutzerklärung von ALL-INKL: <a
+                href="https://all-inkl.com/datenschutz/">https://all-inkl.com/datenschutz/</a>.</p>
+
+        <h2>3. Allgemeine Hinweise und Pflichtinformationen</h2>
+        <h3>Datenschutz</h3>
+        <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre
+            personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser
+            Datenschutzerklärung.</p>
+
+        <h3>Hinweis zur verantwortlichen Stelle</h3>
+        <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+        <p>
+            SCHUNK business solution consulting<br>
+            Brinkstraße 129<br>
+            49080 Osnabrück<br>
+            Telefon: 0152 22591724<br>
+            E-Mail: info@schunk-bsc.com
+        </p>
+
+        <h3>Speicherdauer</h3>
+        <p>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre
+            personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt.</p>
+
+        <h3>SSL- bzw. TLS-Verschlüsselung</h3>
+        <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum
+            Beispiel Bestellungen oder Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL- bzw.
+            TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers
+            von „http://“ auf „https://“ wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.</p>
+
+        <h2>4. Datenerfassung auf dieser Website</h2>
+        <h3>Cookies</h3>
+        <p>Unsere Internetseiten verwenden so genannte „Cookies“. Cookies sind kleine Datenpakete und richten auf Ihrem
+            Endgerät keinen Schaden an. Sie werden entweder vorübergehend für die Dauer einer Sitzung (Session-Cookies)
+            oder dauerhaft (permanente Cookies) auf Ihrem Endgerät gespeichert. Cookies, die zur Durchführung des
+            elektronischen Kommunikationsvorgangs erforderlich sind, werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO
+            gespeichert.</p>
+
+        <p style="margin-top: 2rem; font-size: 0.9rem; color: #999;">Quelle: <a
+                href="https://www.e-recht24.de">e-recht24.de</a></p>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="index2.html#contact">Kontakt</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SchunkBSC - Alexander Schunk. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800
+        });
+    </script>
+</body>
+
+</html>

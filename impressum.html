@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum - SchunkBSC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --accent: rgb(239, 125, 0);
+            --accent-hover: rgb(219, 105, 0);
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --gray: #6b7280;
+            --gray-light: #f7f8fa;
+            --success: #10b981;
+            --error: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--gray-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(239, 125, 0, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(239, 125, 0, 0.4);
+        }
+
+        /* Hero Spacer */
+        .hero-spacer {
+            height: 40vh;
+            background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), url('/LR_2394a.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .hero-spacer h1 {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        /* Legal Content */
+        .legal-content {
+            background: white;
+            padding: 3rem 4rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            margin: -5rem auto 5rem;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            width: 90%;
+        }
+
+        .legal-content h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            border-bottom: 2px solid var(--gray-light);
+            padding-bottom: 0.5rem;
+        }
+
+        .legal-content p,
+        .legal-content li {
+            margin-bottom: 1rem;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .legal-content strong {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .legal-content a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .legal-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .legal-content {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index2.html" class="logo">
+                <img src="/Schunk-BSC_Unterzeile_Logo_RGB.png" alt="Schunk BSC">
+            </a>
+            <div class="nav-links">
+                <a href="index2.html#features">Warum SchunkBSC?</a>
+                <a href="skills.html">Skills & Erfahrungen</a>
+                <a href="index2.html#services">Leistungen</a>
+                <a href="index2.html#contact" class="btn">Projekt anfragen</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-spacer">
+        <div data-aos="fade-up">
+            <h1>Impressum</h1>
+        </div>
+    </div>
+
+    <div class="legal-content" data-aos="fade-up" data-aos-delay="100">
+        <h2>Angaben gemäß § 5 TMG</h2>
+        <p>
+            <strong>SCHUNK business solution consulting</strong><br>
+            Brinkstraße 129<br>
+            49080 Osnabrück
+        </p>
+        <p>
+            <strong>Vertreten durch:</strong><br>
+            Alexander Schunk
+        </p>
+
+        <h2>Kontakt</h2>
+        <p>
+            Telefon: +49 (0) 152 22591724<br>
+            E-Mail: <a href="mailto:info@schunk-bsc.com">info@schunk-bsc.com</a><br>
+            Website: <a href="https://www.schunk-bsc.com">www.schunk-bsc.com</a>
+        </p>
+
+        <h2>Umsatzsteuer-ID</h2>
+        <p>
+            Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
+            <strong>DE341299513</strong>
+        </p>
+
+        <h2>Steuernummer</h2>
+        <p>
+            66/142/06668
+        </p>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="index2.html#contact">Kontakt</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SchunkBSC - Alexander Schunk. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800
+        });
+    </script>
+</body>
+
+</html>
